@@ -58,12 +58,10 @@ function CreateProduct() {
       event.preventDefault();
       setLoading(true);
       const mediaUrl = await handleImageUpload();
-      console.log({ mediaUrl });
       const url = `${baseUrl}/api/product`;
       const { name, price, description } = product;
       const payload = { name, price, description, mediaUrl };
       const response = await axios.post(url, payload);
-      console.log({ response });
       setProduct(INITIAL_PRODUCT);
       setSuccess(true);
     } catch (error) {
